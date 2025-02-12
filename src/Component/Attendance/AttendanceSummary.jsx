@@ -1,83 +1,122 @@
 
 
+import React, { useState } from 'react';
+// import MissingTimePopup from './MissingTimePopup';
 
-// import img1 from '../assets/Vector1.png';
-import React from "react";
-export default function AttendanceSummary() {
-  
+const AttendanceSummary = () => {
+    // State management
+    const [selectedEmployee, setSelectedEmployee] = useState('');
+    const [fromDate, setFromDate] = useState('From Date');
+    const [toDate, setToDate] = useState('');
+    // const [attendanceData, setAttendanceData] = useState(null);
+    const [isOpen, setIsOpen] = useState(false);
 
-  return (
-    <div className="bg-[#DBF2FF] p-6 rounded-lg min-h-screen">
-      <h2 className="text-2xl font-semibold px-3 mb-4">HR Attendance Report</h2>
-      <div className="bg-white p-4 rounded-lg flex flex-wrap mt-8  gap-4 items-center">
-        <select className="w-60 p-2 text-gray-600 border-2 border-gray-600 outline-gray-400 rounded-md">
-          <option>Select Department</option>
-          <option value="hr">HR</option>
-          <option value="it">IT</option>
-          <option value="finance">Finance</option>
-        </select>
-        
-        <select className="w-60 p-2 border-2 text-gray-600 border-gray-600 outline-gray-400 rounded-md">
-          <option>Select Employee</option>
-          <option value="john">John Doe</option>
-          <option value="jane">Jane Smith</option>
-        </select>
-        
-        <select className="w-60 p-2 border-2 text-gray-600 border-gray-600 outline-gray-400 rounded-md">
-          <option>Attendance Detail</option>
-          <option value="present">Present</option>
-          <option value="absent">Absent</option>
-        </select>
-        
-        <div className="relative ">
-          <input type="date" className="p-2 text-gray-600 border-2 border-gray-600 outline-gray-400 rounded-md w-60  " placeholderText="Select start date" />
-          
+    // Sample employee data
+    const employees = [
+        { id: 1, name: 'Saira Khan' },
+        { id: 2, name: 'Hussan Khan' },
+        { id: 3, name: 'Ibad ur Rahman' },
+        { id: 4, name: 'Nadeem ur Rahman' },
+        { id: 5, name: 'Mithali Ade' }
+    ];
+
+    // Handler for showing attendance data
+    const handleShowAttendance = () => {
+        if (!selectedEmployee || !fromDate || !toDate) {
+            alert('Please select all required fields');
+            return;
+        }
+
+        // // Simulated attendance data - in a real app, this would come from an API
+        // const mockAttendanceData = {
+        //     employee: selectedEmployee,
+        //     period: `${fromDate} to ${toDate}`,
+        //     summary: {
+        //         present: 15,
+        //         absent: 2,
+        //         late: 3,
+        //         total: 20
+        //     }
+        // };
+
+        // setAttendanceData(mockAttendanceData);
+    };
+
+
+    return (
+        <div className="flex flex-col w-full p-6 bg-blue-100 min-h-screen">
+            <h2 className="text-lg font-semibold mb-4">Attendance Summary Report</h2>
+
+            {/* Controls Section */}
+            <div className="bg-white p-4 rounded-lg shadow flex flex-col md:flex-row gap-4 items-center">
+                <div className="relative w-full md:w-1/4">
+                    <select
+                        className="border p-2 rounded w-full pl-8"
+                        value={selectedEmployee}
+                        onChange={(e) => setSelectedEmployee(e.target.value)}
+                    >
+                        <option value="">Select Employee</option>
+                        {employees.map(emp => (
+                            <option key={emp.id} value={emp.id}>
+                                {emp.name}
+                            </option>
+                        ))}
+                    </select>
+
+                </div>
+
+                <div className="relative w-full md:w-1/4">
+
+                    <input
+                        type="date"
+                        className="border p-2 rounded w-full pl-8"
+
+                        data-placeholder='From Date'
+                        value={fromDate}
+                        onChange={(e) => setFromDate(e.target.value)}
+
+                    />
+
+                </div>
+
+                <div className="relative w-full md:w-1/4">
+                    <input
+                        type="date"
+                        className="border p-2 rounded w-full pl-8"
+                        value={toDate}
+                        onChange={(e) => setToDate(e.target.value)}
+
+                    />
+
+                </div>
+
+                <button
+                    className="bg-blue-500 text-white p-2 rounded w-full md:w-1/6 hover:bg-blue-600 transition-colors"
+                    onClick={handleShowAttendance}
+                >
+                    Show
+                </button>
+            </div>
+
+            <div>
+                {/* Button to trigger the popup */}
+                {/* <button
+                    onClick={() => setIsOpen(true)}
+                    className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                >
+                    Add Missing Time Entry
+                </button>
+
+                <MissingTimePopup
+                    isOpen={isOpen}
+                    onClose={() => setIsOpen(false)}
+                /> */}
+            </div>
+
+
         </div>
-        
-        <div className="relative">
-        <input type="date"  className="p-2 border-2 border-gray-600 outline-gray-400 text-gray-600 rounded-md w-60" placeholderText="Select end date" />
-          
-        </div>
-        
-        <button className="bg-blue-500 text-white px-8 py-2 ml-1 rounded-md">Show</button>
-        {/* <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ718nztPNJfCbDJjZG8fOkejBnBAeQw5eAUA&s" alt="" className="bg-gray-200 p-2  ml-3 rounded"/> */}
 
-        <input type="text" placeholder="Select Filter" className="mt-4 w-full p-2 border-2 p-4 rounded-md" />
-      </div>
-      
-      
-      
-    </div>
-  );
-}
+    );
+};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default AttendanceSummary;

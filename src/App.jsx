@@ -38,6 +38,7 @@ import AllowanceDeductionTypes from './Component/Payroll/AllowanceDeductionTypes
 import AllowanceDeduction from './Component/Payroll/AllowanceDeduction';
 import PayrollFinalReport from './Component/Payroll/PayrollFinalReport';
 import PayrollPublish from './Component/Payroll/PayrollPublish';
+import PayrollPublishedReport from './Component/Payroll/PayrollPublishedReport';
 function App() {
  
   const router = createBrowserRouter([
@@ -194,6 +195,10 @@ function App() {
         },{
           path:"/payroll/payroll_publish",
           element:<PayrollPublish/>
+        },
+        {
+          path:"/payroll/payroll_publish_report",
+          element:<PayrollPublishedReport/>
         }
       ]
     }
