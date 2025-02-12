@@ -1,8 +1,5 @@
 import React from 'react'
 import Sidebar from '../Component/Sidebar'
-
-
-import Payroll from '../Component/Payroll/Payroll'
 import Shift from '../Component/Shiftsetup/Shift'
 
 function Shiftpage() {

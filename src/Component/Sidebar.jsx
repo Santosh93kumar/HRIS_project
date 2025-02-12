@@ -73,6 +73,7 @@ function Sidebar() {
     },
     { name: "Payroll", icon: payroll, path: "/payroll",subMenu:[
       {name:"Payroll Months", path:"/payroll/payroll_months"},
+      {name:"Payroll Setup", path:"/payroll/payroll_setup"},
       {name:"Allowance Deduction Types", path:"/payroll/allowance_deduction_types"},
       {name:"Allowance Deduction", path:"/payroll/allowance_deduction"},
       {name:"Payroll Final Report", path:"/payroll/payroll_final_report"},
@@ -80,7 +81,7 @@ function Sidebar() {
       {name:"Payroll Publish Report", path:"/payroll/payroll_publish_report"}
     ] },
     { name: "Shift Setup", icon: shift, path: "/shiftsetup",subMenu:[
-      {name:"Create Shift", Path:"/shiftsetup/create_shift"},
+      {name:"Create Shift", path:"/shiftsetup/create_shift"},
       {name:"Assign Shift Employee", path:"/shiftsetup/assign_shift_employee"},
     ] },
     { name: "Employee Management", icon: management, path: "/employeemanagement",subMenu:[
