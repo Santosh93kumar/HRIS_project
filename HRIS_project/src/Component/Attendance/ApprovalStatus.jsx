@@ -113,7 +113,7 @@ function ApprovalStatus() {
   const [leaveData, setLeaveData] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8000/website/leave/leaveentryalldata")
+    axios.get(`${import.meta.env.VITE_API_URL}/website/leave/leaveentryalldata`)
       .then((res) => {
         if (res.data.status === 1) {
           const updatedData = res.data.data.map(leave => ({

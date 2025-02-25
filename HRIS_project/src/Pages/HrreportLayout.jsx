@@ -4,7 +4,7 @@ import Sidebar from '../Component/Sidebar'
 
 import { Outlet } from 'react-router-dom'
 
-function Hrreportpage() {
+function HrReportLayout() {
   return (
     <>
         <div className='flex flex-row bg-sky-100 w-full'>
@@ -21,4 +21,4 @@ function Hrreportpage() {
   )
 }
 
-export default Hrreportpage
+export default HrReportLayout
