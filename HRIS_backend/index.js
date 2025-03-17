@@ -7,7 +7,11 @@ const { mainRouts } = require("./App/mainRouts");
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://hris-project-1.onrender.com", // Remove trailing slash
+  })
+);
 app.use(express.json());
 
 // Routes
