@@ -3,13 +3,14 @@ const cors = require("cors");
 const path = require('path');
 let mongoose = require("mongoose")
 const { mainRouts } = require("./App/mainRouts");
+require("dotenv").config();
 
 const app = express();
 
 // Middleware
 app.use(
   cors({
-    origin: "https://hris-project-1.onrender.com",
+    origin: ["https://hris-project-1.onrender.com", "http://localhost:5173"],
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization"],
     exposedHeaders: ["Referrer-Policy"],
@@ -35,4 +36,4 @@ mongoose.connect(process.env.MONGO_URL)
 .then(() => {
     console.log("Connected to MongoDB");
   })
-app.listen("8000")
+app.listen(process.env.PORT)
