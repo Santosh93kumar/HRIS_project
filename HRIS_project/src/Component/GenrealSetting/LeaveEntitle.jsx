@@ -314,7 +314,7 @@ function LeaveEntitle() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/website/departmentroutes/viewdepartment")
+      .get(`${import.meta.env.VITE_API_URL}/website/departmentroutes/viewdepartment`)
       .then((response) => {
         console.log("Departments Data:", response.data.departments);
         if (Array.isArray(response.data.departments)) {
@@ -338,7 +338,7 @@ function LeaveEntitle() {
         // Fetch Employee Names when modal opens
         const fetchEmployeeTypes = async () => {
             try {
-                const response = await axios.get("http://localhost:8000/website/leave/leaveentrydata");
+                const response = await axios.get(`${import.meta.env.VITE_API_URL}/website/leave/leaveentrydata`);
                 
                 if (response.status === 200 && Array.isArray(response.data.employees)) {
                     // Extract only names from employees array
@@ -370,7 +370,7 @@ function LeaveEntitle() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:8000/website/leaveentitlementroute/leaveentitlement",
+        `${import.meta.env.VITE_API_URL}/website/leaveentitlementroute/leaveentitlement`,
         formData
       );
       console.log("Response:", response.data);
@@ -401,7 +401,7 @@ function LeaveEntitle() {
     formData.append("leaveimage", selectedFileName);
     try {
       const res = await axios.post(
-        "http://localhost:8000/website/leaveBalanceRoute/leaveBalance",
+        `${import.meta.env.VITE_API_URL}/website/leaveBalanceRoute/leaveBalance`,
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );

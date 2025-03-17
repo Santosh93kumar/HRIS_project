@@ -72,7 +72,7 @@ const LeaveEntryPopup = ({ isOpen, onClose, employeeName = "Ibad ur Rahman" }) =
   
     try {
       const response = await axios.post(
-        "http://localhost:8000/website/leave/leaveentry",
+        `${import.meta.env.VITE_API_URL}/website/leave/leaveentry`,
         formData
       );
   
@@ -151,7 +151,7 @@ useEffect(() => {
       // Fetch Employee Names when modal opens
       const fetchEmployeeTypes = async () => {
           try {
-              const response = await axios.get("http://localhost:8000/website/leave/leaveentrydata");
+              const response = await axios.get(`${import.meta.env.VITE_API_URL}/website/leave/leaveentrydata`);
               
               if (response.status === 200 && Array.isArray(response.data.employees)) {
                   // Extract only names from employees array

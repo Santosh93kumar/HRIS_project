@@ -22,7 +22,7 @@ function ManagmentDashboard() {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/website/homepage/employeedashboard", // ✅ Make sure backend route is correct
+        `${import.meta.env.VITE_API_URL}/website/homepage/employeedashboard`, // ✅ Make sure backend route is correct
         formData,
         {
           headers: {

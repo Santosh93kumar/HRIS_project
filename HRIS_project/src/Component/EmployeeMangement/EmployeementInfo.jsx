@@ -34,7 +34,7 @@ const EmploymentInfo = () => {
           setLoading(true);
           setError(null);
           try {
-              const response = await axios.get("http://localhost:8000/website/employeeInfoRoute/employeeinfo");
+              const response = await axios.get(`${import.meta.env.VITE_API_URL}/website/employeeInfoRoute/employeeinfo`);
               if (response.data.status === 1 && response.data.employees) {
                   console.log(response.data);
                   setEmployees(response.data.employees);
@@ -80,7 +80,7 @@ const EmploymentInfo = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:8000/website/employementInfoRoute/employementInfo",
+        `${import.meta.env.VITE_API_URL}/website/employementInfoRoute/employementInfo`,
         employeeData,{
           "Content-Type": "application/json", // Ensure JSON format
 

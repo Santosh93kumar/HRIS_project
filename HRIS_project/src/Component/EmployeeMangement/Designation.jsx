@@ -35,7 +35,7 @@ const Designation = () => {
   
     // Send the POST request to add a new department
     axios
-      .post("http://localhost:8000/website/designationroutes/designation", formData)
+      .post(`${import.meta.env.VITE_API_URL}/website/designationroutes/designation`, formData)
       .then((res) => {
         console.log("Backend Response:", res.data); // Log the response to check if it is correct
   
@@ -76,7 +76,7 @@ const Designation = () => {
 
   const fetchDesignation = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/website/designationroutes/viewdesignation");
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/website/designationroutes/viewdesignation`);
       if (res.data.status === 1) {
         setDesignation(res.data.designation || []);
       } else {
@@ -106,7 +106,7 @@ const Designation = () => {
     if (currentDept) {
       // Update the department via backend
       axios
-        .put(`http://localhost:8000/website/designationroutes/editdesignation/${currentDept._id}`, {
+        .put(`${import.meta.env.VITE_API_URL}/website/designationroutes/editdesignation/${currentDept._id}`, {
           designationName: editedName, // Correctly use 'designationName' here
         })
         .then((res) => {
@@ -134,7 +134,7 @@ const Designation = () => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await axios.delete(`http://localhost:8000/website/designationroutes/deletedesignation/${id}`);
+      const response = await axios.delete(`${import.meta.env.VITE_API_URL}/website/designationroutes/deletedesignation/${id}`);
       if (response.data.status === 1) {
         toast.success(response.data.msg);
         fetchDesignation(); // Refresh the designations list

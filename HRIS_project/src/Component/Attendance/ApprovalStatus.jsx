@@ -137,7 +137,7 @@ function ApprovalStatus() {
   };
 
   const handleSubmit = () => {
-    axios.post("http://localhost:8000/website/approvalstatusreportroutes/approvalstatusreport", leaveData)
+    axios.post(`${import.meta.env.VITE_API_URL}/website/approvalstatusreportroutes/approvalstatusreport`, leaveData)
       .then(response => {
         console.log("Data sent successfully:", response.data);
         toast.success("Leave statuses updated successfully! ✅", {

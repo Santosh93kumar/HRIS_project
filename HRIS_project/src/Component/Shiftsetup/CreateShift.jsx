@@ -142,7 +142,7 @@ function CreateShift() {
 
   const fetchShifts = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/website/shift/getShift");
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/website/shift/getShift`);
       setData(response.data.shifts || []);
     } catch (error) {
       console.error("Error fetching shifts:", error);
@@ -151,7 +151,7 @@ function CreateShift() {
   
   const handleAddShift = async (newShiftData) => {
     try {
-      await axios.post("http://localhost:8000/website/shift/createShift", newShiftData);
+      await axios.post(`${import.meta.env.VITE_API_URL}/website/shift/createShift`, newShiftData);
       fetchShifts(); // Refetch shifts after adding
     } catch (error) {
       console.error("Error adding shift:", error);
@@ -170,7 +170,7 @@ function CreateShift() {
   // Delete Shift Function
   const handleDelete = async (shiftId) => {
     try {
-      await axios.delete(`http://localhost:8000/website/shift/deleteShift/${shiftId}`);
+      await axios.delete(`${import.meta.env.VITE_API_URL}/website/shift/deleteShift/${shiftId}`);
       setData(data.filter((shift) => shift._id !== shiftId)); // Remove from UI
     } catch (error) {
       console.error("Error deleting shift:", error);

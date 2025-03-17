@@ -47,7 +47,7 @@ const File = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/website/fileRoute/upload",
+        `${import.meta.env.VITE_API_URL}/website/fileRoute/upload`,
         formData,
         {
           headers: {

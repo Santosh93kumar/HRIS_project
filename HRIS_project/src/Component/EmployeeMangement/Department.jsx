@@ -63,7 +63,7 @@ const Department = () => {
   
     // Send the POST request to add a new department
     axios
-      .post("http://localhost:8000/website/departmentroutes/department", formData)
+      .post(`${import.meta.env.VITE_API_URL}/website/departmentroutes/department`, formData)
       .then((res) => {
         console.log("Backend Response:", res.data); // Log the response to check if it is correct
   
@@ -105,7 +105,7 @@ const Department = () => {
 
   const fetchDepartments = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/website/departmentroutes/viewdepartment");
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/website/departmentroutes/viewdepartment`);
       if (res.data.status === 1) {
         setDepartments(res.data.departments || []);
       } else {
@@ -137,7 +137,7 @@ const Department = () => {
     if (currentDept) {
       // Update the department via backend
 axios
-.put(`http://localhost:8000/website/departmentroutes/editdepartment/${currentDept._id}`, {
+.put(`${import.meta.env.VITE_API_URL}/website/departmentroutes/editdepartment/${currentDept._id}`, {
   departmentName: editedName,
 })
 .then((res) => {
@@ -167,7 +167,7 @@ axios
 
   const handleDelete = async (id) => {
     try {
-      const response = await axios.delete(`http://localhost:8000/website/departmentroutes/deletedepartment/${id}`);
+      const response = await axios.delete(`${import.meta.env.VITE_API_URL}/website/departmentroutes/deletedepartment/${id}`);
       if (response.data.status === 1) {
         toast.success(response.data.msg);
         fetchDepartments(); // Refresh the departments list

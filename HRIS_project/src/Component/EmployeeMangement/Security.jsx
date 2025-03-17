@@ -52,7 +52,7 @@ const Security = () => {
       };
 
       const response = await axios.post(
-        "http://localhost:8000/website/securityRoute/security",
+        `${import.meta.env.VITE_API_URL}/website/securityRoute/security`,
         sec
       );
       if (response.data.status === 1) {

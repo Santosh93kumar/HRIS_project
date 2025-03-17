@@ -41,7 +41,7 @@ const EmployeeProfile = () => {
     
     try {
       const response = await axios.post(
-        "http://localhost:8000/website/employeeInfoRoute/employeeinfo",
+        `${import.meta.env.VITE_API_URL}/website/employeeInfoRoute/employeeinfo`,
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );

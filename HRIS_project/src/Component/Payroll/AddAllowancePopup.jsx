@@ -36,7 +36,7 @@ const AddAllowancePopup = ({ isOpen, onClose, onSave }) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/website/payroll/allowdeductiontyperoutes",
+        `${import.meta.env.VITE_API_URL}/website/payroll/allowdeductiontyperoutes`,
         formData
       );
 

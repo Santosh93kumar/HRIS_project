@@ -67,7 +67,7 @@ function GazettedHoliday() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:8000/website/holidayRoute/holidays",
+        `${import.meta.env.VITE_API_URL}/website/holidayRoute/holidays`,
         holidayData,
         {
           "Content-Type": "application/json",
@@ -89,7 +89,7 @@ function GazettedHoliday() {
     setError(null);
     try {
       const response = await axios.get(
-        "http://localhost:8000/website/holidayRoute/holidays"
+        `${import.meta.env.VITE_API_URL}/website/holidayRoute/holidays`
       );
       if (response.data.status === 1 && response.data.holidays) {
         console.log(response.data);

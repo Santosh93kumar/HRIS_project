@@ -8,7 +8,7 @@ function HrApproval() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/website/approvalstatusreportroutes/approvalstatusreport")
+      .get(`${import.meta.env.VITE_API_URL}/website/approvalstatusreportroutes/approvalstatusreport`)
       .then((res) => {
         console.log("Fetched Data:", res.data);
         if (Array.isArray(res.data.data)) {

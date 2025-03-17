@@ -16,7 +16,7 @@ function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:8000/getAllPunchDetails"
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/getAllPunchDetails`
         );
         
         const result = await response.json();

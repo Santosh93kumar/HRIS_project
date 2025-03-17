@@ -26,7 +26,7 @@ const EmployeeContact = () => {
           setLoading(true);
           setError(null);
           try {
-              const response = await axios.get("http://localhost:8000/website/employeeInfoRoute/employeeinfo");
+              const response = await axios.get(`${import.meta.env.VITE_API_URL}/website/employeeInfoRoute/employeeinfo`);
               if (response.data.status === 1 && response.data.employees) {
                   console.log(response.data);
                   setEmployees(response.data.employees);
@@ -57,7 +57,7 @@ const EmployeeContact = () => {
         });
         setPhoto(
           foundEmployee.profileImage
-            ? `http://localhost:8000/uploads/EmployeeInfoImage/${foundEmployee.profileImage}`
+            ? `${import.meta.env.VITE_API_URL}/uploads/EmployeeInfoImage/${foundEmployee.profileImage}`
             : null
         );
         console.log("photo:", photo);
@@ -95,7 +95,7 @@ const EmployeeContact = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/website/contactInfoRoute/contactinfo",
+        `${import.meta.env.VITE_API_URL}/website/contactInfoRoute/contactinfo`,
         formData,
         {
           headers: {

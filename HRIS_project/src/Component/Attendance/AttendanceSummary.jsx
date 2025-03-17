@@ -237,7 +237,7 @@ function AttendanceSummary() {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await fetch("http://localhost:8000/getAllPunchDetails"
+          const response = await fetch(`${import.meta.env.VITE_API_URL}/getAllPunchDetails`
           );
           
           const result = await response.json();
@@ -254,7 +254,7 @@ function AttendanceSummary() {
 
     try {
       const response = await axios.get(
-        "http://localhost:8000/website/employementInfoRoute/employementInfo"
+        `${import.meta.env.VITE_API_URL}/website/employementInfoRoute/employementInfo`
       );
       cconsole.log(response)
       if (response.data.status === 1 && Array.isArray(response.data.employees)) {

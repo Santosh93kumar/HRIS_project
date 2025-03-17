@@ -254,7 +254,7 @@ const Payroll = () => {
       setError(null);
       try {
         const response = await axios.get(
-          "http://localhost:8000/website/employeeInfoRoute/employeeinfo"
+          `${import.meta.env.VITE_API_URL}/website/employeeInfoRoute/employeeinfo`
         );
         if (response.data.status === 1 && response.data.employees) {
           console.log(response.data);
@@ -313,7 +313,7 @@ const Payroll = () => {
         ...payrollData,
       };
       const response = await axios.post(
-        "http://localhost:8000/website/payrollRoute/payroll",
+        `${import.meta.env.VITE_API_URL}/website/payrollRoute/payroll`,
         payload
       );
       if (response.data.status === 1) {

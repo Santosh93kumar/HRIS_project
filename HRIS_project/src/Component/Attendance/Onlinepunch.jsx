@@ -16,7 +16,7 @@ function Onlinepunch() {
   // Function to fetch punch data and update state
   const fetchData = async () => {
     try {
-      const response = await fetch('http://localhost:8000/getAllPunchData');
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/getAllPunchData`);
       const result = await response.json();
       setData(result.data || []);
     } catch (error) {
@@ -67,7 +67,7 @@ function Onlinepunch() {
   useEffect(() => {
     const fetchEmployeeData = async () => {
       try {
-        const response = await fetch('http://localhost:8000/getEmployeeInfo');
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/getEmployeeInfo`);
         const result = await response.json();
         setEmployees(result.data || []);
       } catch (error) {
@@ -106,7 +106,16 @@ function Onlinepunch() {
   //   };
 
   //   try {
-  //     const response = await fetch("http://localhost:8000/onlinePunch", {
+  //     const response = await fetch("
+  // 
+  // 
+  // 
+  // 
+  // 
+  // 
+  // 
+  // 
+  // /onlinePunch", {
   //       method: "POST",
   //       headers: { "Content-Type": "application/json" },
   //       body: JSON.stringify(payload),
@@ -159,7 +168,7 @@ function Onlinepunch() {
     }
   
     try {
-      const response = await fetch("http://localhost:8000/onlinePunch", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/onlinePunch`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
