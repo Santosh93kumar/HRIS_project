@@ -9,7 +9,10 @@ const app = express();
 // Middleware
 app.use(
   cors({
-    origin: "https://hris-project-1.onrender.com", // Remove trailing slash
+    origin: "https://hris-project-1.onrender.com",
+    credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization"],
+    exposedHeaders: ["Referrer-Policy"],
   })
 );
 app.use(express.json());
