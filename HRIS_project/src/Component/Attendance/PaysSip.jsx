@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../Header';
-import v1 from '../Attendance/Images/v1.png'
+import v1 from '../Attendance/images/v1.png'
 import './attendence.css'
 function PaysSip() {
   return (
