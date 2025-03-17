@@ -31,7 +31,7 @@ app.use("/uploads/BalanceImage", express.static("uploads/BalanceImage"));
 
 
 
-mongoose.connect(`mongodb://127.0.0.1:27017/HRISPROJECT`)
+mongoose.connect(process.env.MONGO_URL)
 .then(() => {
     console.log("Connected to MongoDB");
   })
