@@ -17,7 +17,7 @@ import HrApproval from './Component/Approval/HrApproval';
 import HodApproval from './Component/Approval/HodApproval';
 import CODApproval from './Component/Approval/CODApproval';
 import HrReportLayout from './Pages/HrReportLayout';
-import Hrattendancereport from './Component/hrreport/Hrattendancereport';
+import Hrattendancereport from './Component/Hrreport/HrAttendancereport';
 import HrLeaveBalance from './Component/Hrreport/HrLeaveBalance';
 import LeaveReport from './Component/Hrreport/LeaveReport';
 import HrEntryStatus from './Component/Hrreport/HrEntryStatus'; 
