@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Header from "../Header";
-import icon from "../Payroll/print.png";
+import icon from "../Payroll/Print.png";
 
 function HrAttendanceReport() {
   const [filters, setFilters] = useState({
